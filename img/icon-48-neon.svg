@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- 霓虹灯发光效果 -->
+        <filter id="neon-glow-medium">
+            <feGaussianBlur stdDeviation="1" result="blur1"/>
+            <feGaussianBlur stdDeviation="2" result="blur2"/>
+            <feMerge>
+                <feMergeNode in="blur1"/>
+                <feMergeNode in="blur2"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- 渐变背景 -->
+        <linearGradient id="neon-bg-medium" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#00ffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- 背景 -->
+    <rect x="0" y="0" width="48" height="48" fill="#1a1a1a" rx="10"/>
+    
+    <!-- K-ON! 文字 -->
+    <text x="24" y="24" 
+          font-family="Arial Black" 
+          font-size="20" 
+          fill="url(#neon-bg-medium)"
+          text-anchor="middle" 
+          dominant-baseline="middle"
+          filter="url(#neon-glow-medium)">
+        K!
+    </text>
+    
+    <!-- 装饰性光线 -->
+    <path d="M8,8 L40,40" stroke="url(#neon-bg-medium)" stroke-width="1" filter="url(#neon-glow-medium)"/>
+    <path d="M40,8 L8,40" stroke="url(#neon-bg-medium)" stroke-width="1" filter="url(#neon-glow-medium)"/>
+</svg> 

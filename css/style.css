@@ -1,0 +1,216 @@
+#particles-js {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#content {
+	margin-top: 120px;
+	text-align: center;
+}
+#imgbox {
+	margin-bottom: 55px;
+	text-align: center;
+}
+#searchbox{
+	height: 50px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.3s ease;
+}
+#searchlogo{
+	width: 44px;
+	height: 44px;
+	margin-right: -1px;
+	vertical-align:middle;
+	border: none;
+	outline: none;
+	border-radius: 10px 0 0 10px;
+	background:url(../img/search.svg) no-repeat;
+	background-position: center;
+	background-size: 60% 60%;
+	transition: all 0.3s ease;
+}
+#searchtxt {
+	width: 300px;
+	height: 44px;
+	padding: 0 15px;
+	vertical-align: middle;
+	border: none;
+	outline: none;
+	font-family: inherit;
+	font-size: 18px;
+	background: transparent;
+	color: #fff;
+	transition: all 0.3s ease;
+	text-align: center;
+}
+#searchbtn {
+	display: none;
+}
+#searchbtn:focus {
+	cursor: pointer;
+}
+#searchbtn:hover{
+	filter: alpha(Opacity=80);
+	opacity: 0.8;
+}
+
+/* 添加荧光呼吸效果 */
+.glow-effect {
+	animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+	from {
+		filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6))
+			   drop-shadow(0 0 10px rgba(255, 209, 220, 0.4))
+			   drop-shadow(0 0 15px rgba(255, 209, 220, 0.2));
+	}
+	to {
+		filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))
+			   drop-shadow(0 0 20px rgba(255, 209, 220, 0.6))
+			   drop-shadow(0 0 30px rgba(255, 209, 220, 0.4));
+	}
+}
+
+/* 修改搜索框容器样式 */
+.search-container {
+	display: inline-flex;
+	border-radius: 25px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	transform: translateY(0);
+	width: auto;
+	background: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+	padding: 5px 20px;
+}
+
+.search-container:hover {
+	transform: translateY(-5px);
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* 修改搜索框样式 */
+#searchtxt {
+	width: 280px;
+	height: 44px;
+	padding: 0 15px;
+	vertical-align: middle;
+	border: none;
+	outline: none;
+	font-family: inherit;
+	font-size: 18px;
+	background: transparent;
+	color: rgba(255, 255, 255, 0.9);
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+/* 美化搜索框placeholder */
+#searchtxt::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	font-size: 20px;
+	font-weight: 200;
+	letter-spacing: 4px;
+	background: linear-gradient(90deg, 
+		rgba(255,255,255,0) 0%,
+		rgba(255,255,255,0.8) 50%,
+		rgba(255,255,255,0) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: shimmer 3s infinite;
+}
+
+/* 搜索框聚焦效果 */
+#searchtxt:focus {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.search-container:focus-within {
+	background: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* 移除不需要的搜索图标相关样式 */
+#searchlogo, #searchbtn {
+	display: none;
+}
+
+/* 修改时间样式 */
+#time {
+	font-size: 3.5em;
+	color: rgba(255, 255, 255, 0.9);
+	margin-bottom: 20px;
+	font-weight: 400;
+	letter-spacing: 5px;
+}
+
+/* 波浪效果 */
+.wave-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.wave {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 200%;
+	height: 100%;
+	background: url(../img/wave.svg) repeat-x;
+	animation: wave 20s linear infinite;
+	opacity: 0.2;
+}
+
+.wave:nth-child(2) {
+	animation-delay: -5s;
+	opacity: 0.1;
+}
+
+@keyframes wave {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
